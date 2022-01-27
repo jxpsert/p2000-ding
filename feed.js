@@ -2,7 +2,8 @@ const RSFE = require('rss-feed-emitter');
 const feed = new RSFE({ skipFirstLoad: true });
 
 feed.add({
-    url: "http://p2000.brandweer-berkel-enschot.nl/rss.asp",
+    //url: "http://p2000.brandweer-berkel-enschot.nl/rss.asp",
+    url: "https://112-nu.nl/hulpdiensten/rss",
     refresh: 2000,
     eventName: "new-p2000"
 })

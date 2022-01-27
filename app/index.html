@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <div class="toptext noselect">
         <img src="logo.svg">
@@ -13,6 +15,8 @@
 </body>
 
 <script>
+    const sound = require("sound-play");
+    const fs = require('fs');
     let callbox = document.getElementById("callbox");
     let callstring = document.getElementById("callstring");
 
@@ -20,16 +24,17 @@
     let showcall = false;
 
     function clickCall() {
-        if(showcall) showcall = false;
+        if (showcall) showcall = false;
         callstring.classList.add('centred');
         showTimeDate();
     }
 
     function showTimeDate() {
-        if(showcall) return;
+        if (showcall) return;
         const now = new Date();
         let string = "";
-        string += `${('0'  + now.getHours()).slice(-2)+':'+('0' + now.getMinutes()).slice(-2)}<br>${("0" + now.getDate()).slice(-2)}-${("0" + (now.getMonth() + 1)).slice(-2)}-${now.getFullYear()}`;
+        string +=
+            `${('0'  + now.getHours()).slice(-2)+':'+('0' + now.getMinutes()).slice(-2)}<br>${("0" + now.getDate()).slice(-2)}-${("0" + (now.getMonth() + 1)).slice(-2)}-${now.getFullYear()}`;
 
         callstring.innerHTML = string;
     }
@@ -41,9 +46,13 @@
     }, 5000);
 
     let feed = require('../feed.js');
+    let config = require('../config.json');
     feed.feed.on("new-p2000", (call) => {
-        callstring.classList.remove('centred');
+        if (call.category != "BRA") return;
+        if(!feed.checkP2KFilter(config.filters, call.description))
+            callstring.classList.remove('centred');
         callstring.innerHTML = call.description;
         showcall = true;
+        sound.play('pager.mp3');
     });
 </script>

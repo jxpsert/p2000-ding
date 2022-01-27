@@ -11,8 +11,9 @@ const createWindow = () => {
         contextIsolation: false
     }
   });
-  // win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   win.loadFile("app/index.html");
+
 };
 
 app.whenReady().then(() => {

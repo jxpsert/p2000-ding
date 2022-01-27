@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^16.0.7",
-    "rss-feed-emitter": "^3.2.2"
+    "rss-feed-emitter": "^3.2.2",
+    "sound-play": "^1.1.0"
   }
 }
