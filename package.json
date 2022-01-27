@@ -1,0 +1,16 @@
+{
+  "name": "p2000-ding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "jxpsert",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^16.0.7",
+    "rss-feed-emitter": "^3.2.2"
+  }
+}

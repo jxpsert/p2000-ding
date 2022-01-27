@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Matrix';
+    src: url('./matrix.ttf');
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f0000;
+  overflow: hidden;
+}
+
+.toptext {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 20%;
+  font-family: "Arial";
+  background-color: black;
+  color: white;
+  font-size: 7.5vh;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0.5em;
+}
+
+.toptext img {
+  max-width: 10%;
+  display: inline;
+  float: left;
+}
+
+.toptext h1 {
+  position: relative;
+  display: inline;
+  left: 0.5em;
+}
+
+.call {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 20%;
+  height: 80%;
+  font-family: "Matrix";
+  color: red;
+  font-size: 6vh;
+  padding: 0.5em;
+  word-wrap: break-word;
+}
+
+.call:hover {
+    cursor: pointer;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.centred {
+    text-align: center;
+}

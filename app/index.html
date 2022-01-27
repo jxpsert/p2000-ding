@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="toptext noselect">
+        <img src="logo.svg">
+        <h1>OPROEP / ALARM</h1>
+    </div>
+    <div class="call noselect centred" id="callbox">
+        <h1 onclick="clickCall()" id="callstring"></h1>
+    </div>
+</body>
+
+<script>
+    let callbox = document.getElementById("callbox");
+    let callstring = document.getElementById("callstring");
+
+    let timestring = "00:00<br>00-00-0000";
+    let showcall = false;
+
+    function clickCall() {
+        if(showcall) showcall = false;
+        callstring.classList.add('centred');
+        showTimeDate();
+    }
+
+    function showTimeDate() {
+        if(showcall) return;
+        const now = new Date();
+        let string = "";
+        string += `${('0'  + now.getHours()).slice(-2)+':'+('0' + now.getMinutes()).slice(-2)}<br>${("0" + now.getDate()).slice(-2)}-${("0" + (now.getMonth() + 1)).slice(-2)}-${now.getFullYear()}`;
+
+        callstring.innerHTML = string;
+    }
+
+    showTimeDate();
+
+    setInterval(() => {
+        showTimeDate();
+    }, 5000);
+
+    let feed = require('../feed.js');
+    feed.feed.on("new-p2000", (call) => {
+        callstring.classList.remove('centred');
+        callstring.innerHTML = call.description;
+        showcall = true;
+    });
+</script>
