@@ -9,13 +9,16 @@ feed.add({
 })
 
 function checkFilters(filters, message) {
-    let match = false;
-    let words = message.split(' ');
-    words.forEach((word) => {
-        if(filters.includes(word.toLowerCase())) match = true;
-    });
-    return match;
+    return filters.some(filter=>message.toLowerCase().includes(filter));
 }
+
+function isBCall(message) {
+    let b = ["b2", "b1"];
+    return b.some(call=>message.toLowerCase().includes(call));
+}
+
+feed.on('error', console.error);
 
 exports.feed = feed;
 exports.checkP2KFilter = checkFilters;
+exports.isBCall = isBCall;
