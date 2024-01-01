@@ -53,8 +53,8 @@
     }, 5000);
 
     let feed = require('../feed.js');
-    let config = require('../config.json');
     feed.feed.on("new-p2000", (call) => {
+        const config = require('../config.json'); // Allow for config changes without restarting
         let checkForFilters = config.checkForFilters;
         if (call.categories[0] == "BRA" || (call.categories[0] == "AMB" && config.enableAMB)) {
             console.log("got a call: " + call.description);
