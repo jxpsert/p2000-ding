@@ -70,6 +70,12 @@
             showcall = true;
             console.log("showed call: " + call.description);
             if (enableSound) pagerbeep.play();
+
+            if (!config.timeout == false) { // if timeout is not false
+                setTimeout(() => { // set timeout
+                    clickCall(); // to click the call and go back to time and date
+                }, config.timeout);
+            }
         }
     });
 

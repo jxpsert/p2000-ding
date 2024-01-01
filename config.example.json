@@ -2,5 +2,6 @@
   "filters": [],
   "enableAMB": true,
   "enableBCall": true,
-  "checkForFilters": false
+  "checkForFilters": false,
+  "timeout": false
 }
