@@ -5,7 +5,7 @@ const createWindow = () => {
     height: 720,
     autoHideMenuBar: true,
     resizable: true,
-    title: "BRANDWEER PAGER P2000",
+    title: "BRANDWEER LICHTKRANT",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

@@ -10,8 +10,7 @@
   "author": "jxpsert",
   "license": "ISC",
   "dependencies": {
-    "electron": "^22.3.25",
-    "rss-feed-emitter": "^3.2.2",
-    "sound-play": "^1.1.0"
+    "electron": "^28.1.0",
+    "rss-feed-emitter": "^0.0.1"
   }
 }
