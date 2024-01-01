@@ -7,9 +7,9 @@ const createWindow = () => {
     resizable: true,
     title: "BRANDWEER PAGER P2000",
     webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false
-    }
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
   // win.webContents.openDevTools();
   win.loadFile("app/index.html");

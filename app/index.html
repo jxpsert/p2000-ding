@@ -7,7 +7,7 @@
 <body>
     <div class="toptext noselect">
         <img src="logo.svg">
-        <h1>OPROEP / ALARM</h1>
+        <h1 id="oproepalarm">OPROEP / ALARM</h1>
     </div>
     <div class="call noselect centred" id="callbox">
         <h1 onclick="clickCall()" id="callstring"></h1>
@@ -18,9 +18,12 @@
 <script>
     const sound = require("sound-play");
     const fs = require('fs');
+    let oproepalarm = document.getElementById("oproepalarm");
     let callbox = document.getElementById("callbox");
     let callstring = document.getElementById("callstring");
     let pagerbeep = document.getElementById('pagerbeep');
+
+    let enableSound = true;
 
     let timestring = "00:00<br>00-00-0000";
     let showcall = false;
@@ -66,7 +69,16 @@
                 call.description;
             showcall = true;
             console.log("showed call: " + call.description);
-            pagerbeep.play();
+            if (enableSound) pagerbeep.play();
         }
     });
+
+    oproepalarm.onclick = () => {
+        enableSound = !enableSound;
+        if (enableSound) {
+            oproepalarm.classList.remove('text-muted');
+        } else {
+            oproepalarm.classList.add('text-muted');
+        }
+    };
 </script>

@@ -25,6 +25,10 @@ body {
   padding: 0.25em;
 }
 
+.text-muted {
+  opacity: 0.75;
+}
+
 .toptext img {
   max-width: 10%;
   display: inline;
