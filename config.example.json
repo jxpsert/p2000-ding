@@ -1,3 +1,6 @@
 {
-    "filters": []
+  "filters": [],
+  "enableAMB": true,
+  "enableBCall": true,
+  "checkForFilters": false
 }

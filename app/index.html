@@ -52,15 +52,18 @@
     let feed = require('../feed.js');
     let config = require('../config.json');
     feed.feed.on("new-p2000", (call) => {
-        let checkForFilters = true;
+        let checkForFilters = config.checkForFilters;
         if (call.categories[0] == "BRA" || (call.categories[0] == "AMB" && config.enableAMB)) {
             console.log("got a call: " + call.description);
-            if (config.filters.length == 0) checkForFilters = false; console.log('no filters applied');
+            if (config.filters.length == 0) checkForFilters = false;
+            console.log('no filters applied');
             if (!feed.checkP2KFilter(config.filters, call.description) && checkForFilters) return;
             if (feed.isBCall(call.description) && config.enableBCall == false) return;
             if (checkForFilters) console.log("matched filter(s)");
             callbox.classList.remove('centred');
-            callstring.innerHTML = `${('0'  + new Date().getHours()).slice(-2)+':'+('0' + new Date().getMinutes()).slice(-2)} ` + call.description;
+            callstring.innerHTML =
+                `${('0'  + new Date().getHours()).slice(-2)+':'+('0' + new Date().getMinutes()).slice(-2)} ` +
+                call.description;
             showcall = true;
             console.log("showed call: " + call.description);
             pagerbeep.play();
