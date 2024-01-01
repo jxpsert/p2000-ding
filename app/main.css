@@ -10,6 +10,10 @@ body {
   overflow: hidden;
 }
 
+#oproepalarm:hover {
+  cursor: pointer;
+}
+
 .toptext {
   position: absolute;
   width: 100%;
